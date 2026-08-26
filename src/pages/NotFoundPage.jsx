@@ -11,6 +11,7 @@ export default function NotFoundPage() {
         <Link to="/" className="not-found-link">
           Gå til forsiden
         </Link>
+        {/* hejsa */}
       </main>
       <footer className="site-footer">
         <div className="footer-top">

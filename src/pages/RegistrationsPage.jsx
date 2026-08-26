@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const headers = {
-  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json"
-};
+import { supabase } from "../lib/supabaseClient";
 
 export default function RegistrationsPage() {
   const [registrations, setRegistrations] = useState([]);
@@ -13,8 +8,16 @@ export default function RegistrationsPage() {
 
   useEffect(() => {
     async function getRegistrations() {
-      const response = await fetch(`${SUPABASE_URL}/registrations?order=createdAt.desc`, { headers });
-      const data = await response.json();
+      const { data, error } = await supabase
+        .from("registrations")
+        .select()
+        .order("createdAt", { ascending: false });
+
+      if (error) {
+        console.error(error);
+        return;
+      }
+
       setRegistrations(data);
       setRegistrationCount(data.length);
     }
@@ -44,7 +47,9 @@ export default function RegistrationsPage() {
                 <small>{registration.email}</small>
               </div>
               <span>{registration.eventTitle}</span>
-              <span>{new Date(registration.eventDate).toLocaleDateString("da-DK")}</span>
+              <span>
+                {new Date(registration.eventDate).toLocaleDateString("da-DK")}
+              </span>
               <span className="status">{registration.status}</span>
             </div>
           ))}

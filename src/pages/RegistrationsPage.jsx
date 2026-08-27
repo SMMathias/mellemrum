@@ -1,28 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { supabase } from "../lib/supabaseClient";
+import { getRegistrations } from "../lib/service";
 
 export default function RegistrationsPage() {
   const [registrations, setRegistrations] = useState([]);
   const [registrationCount, setRegistrationCount] = useState(0);
 
   useEffect(() => {
-    async function getRegistrations() {
-      const { data, error } = await supabase
-        .from("registrations")
-        .select()
-        .order("createdAt", { ascending: false });
-
-      if (error) {
+    async function loadRegistrations() {
+      try {
+        const data = await getRegistrations();
+        setRegistrations(data);
+        setRegistrationCount(data.length);
+      } catch (error) {
         console.error(error);
-        return;
       }
-
-      setRegistrations(data);
-      setRegistrationCount(data.length);
     }
 
-    getRegistrations();
+    loadRegistrations();
   }, []);
 
   return (

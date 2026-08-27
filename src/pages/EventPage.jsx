@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import { supabase } from "../lib/supabaseClient";
+import { getEventById } from "../lib/service";
 
 export default function EventPage() {
   const { eventId } = useParams();
@@ -9,21 +9,14 @@ export default function EventPage() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    async function getEvent() {
-      const { data, error } = await supabase
-        .from("events")
-        .select()
-        .eq("id", eventId)
-        .single();
-
-      if (error) {
+    async function loadEvent() {
+      try {
+        setEvent(await getEventById(eventId));
+      } catch (error) {
         console.error(error);
-        return;
       }
-      setEvent(data);
     }
-
-    getEvent();
+    loadEvent();
   }, [eventId]);
 
   async function handleSubmit(eventSubmit) {

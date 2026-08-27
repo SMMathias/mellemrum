@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { supabase } from "../lib/supabaseClient";
+import { getEvents } from "../lib/service";
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
@@ -8,15 +8,14 @@ export default function HomePage() {
   const [category, setCategory] = useState("Alle");
 
   useEffect(() => {
-    async function getEvents() {
-      const { data } = await supabase
-        .from("events")
-        .select()
-        .order("date", { ascending: true });
-      setEvents(data);
+    async function loadEvents() {
+      try {
+        setEvents(await getEvents());
+      } catch (error) {
+        console.error(error);
+      }
     }
-
-    getEvents();
+    loadEvents();
   }, []);
 
   const categories = [

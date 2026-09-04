@@ -158,3 +158,5 @@ npm run lint
 npm run build
 npm run preview
 ```
+
+## deploy tjek

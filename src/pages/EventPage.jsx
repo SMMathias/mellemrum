@@ -37,6 +37,7 @@ export default function EventPage() {
         eventTitle: event.title,
         eventDate: event.date,
         eventLocation: event.venueName,
+        eventId: event.id,
       });
       setName("");
       setEmail("");

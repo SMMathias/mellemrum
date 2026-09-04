@@ -9,6 +9,8 @@ export default function EventPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle");
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     async function loadEvent() {
@@ -16,6 +18,9 @@ export default function EventPage() {
         setEvent(await getEventById(eventId));
       } catch (error) {
         console.error(error);
+        setHasError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
     loadEvent();
@@ -42,8 +47,22 @@ export default function EventPage() {
     }
   }
 
-  if (!event) {
-    return null;
+  if (isLoading) {
+    return (
+      <main className={styles.page}>
+        <p className="state-message">Henter event…</p>
+      </main>
+    );
+  }
+
+  if (hasError || !event) {
+    return (
+      <main className={styles.page}>
+        <p className="state-message">
+          Eventet kunne ikke hentes. <Link to="/">Gå til alle events</Link>
+        </p>
+      </main>
+    );
   }
 
   const date = new Date(event.date);

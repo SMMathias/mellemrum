@@ -102,6 +102,12 @@
   opacity: 0.65;
 }
 
+.formMessage {
+  background: rgba(var(--white-rgb), 0.55);
+  margin: 0.5rem 0 0;
+  padding: 0.8rem;
+}
+
 @media (max-width: 900px) {
   .detail,
   .signup {

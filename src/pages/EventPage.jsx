@@ -128,6 +128,14 @@ export default function EventPage() {
             <button type="submit" disabled={status === "saving"}>
               Tilmeld mig
             </button>
+            {status === "success" && (
+              <p className={styles.formMessage}>
+                Tak, din tilmelding er modtaget.
+              </p>
+            )}
+            {status === "error" && (
+              <p className={styles.formMessage}>Noget gik galt. Prøv igen.</p>
+            )}
           </form>
         </section>
       </main>

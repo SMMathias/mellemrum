@@ -9,7 +9,7 @@
 }
 
 .detail {
-  background: white;
+  background: var(--white);
   border-radius: 18px;
   box-shadow: var(--shadow);
   display: grid;
@@ -89,7 +89,7 @@
 .signup button {
   background: var(--green);
   border: 0;
-  color: white;
+  color: var(--white);
   cursor: pointer;
   font-weight: 800;
   margin-top: 0.7rem;

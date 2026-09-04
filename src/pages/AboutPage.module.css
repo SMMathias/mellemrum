@@ -1,9 +1,9 @@
 .header {
   background:
-    linear-gradient(90deg, rgba(12, 42, 34, 0.9) 0%, rgba(12, 42, 34, 0.58) 58%, rgba(12, 42, 34, 0.2) 100%),
+    linear-gradient(90deg, rgba(var(--forest-rgb), 0.9) 0%, rgba(var(--forest-rgb), 0.58) 58%, rgba(var(--forest-rgb), 0.2) 100%),
     url("https://images.unsplash.com/photo-1553376482-e96b68bd1e11?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0") center / cover;
   align-items: flex-end;
-  color: white;
+  color: var(--white);
   display: flex;
   min-height: 68vh;
   padding: 5rem var(--content-edge);
@@ -22,7 +22,7 @@
 }
 
 .headerContent > p:last-child {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(var(--white-rgb), 0.78);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   line-height: 1.5;
   margin: 1.75rem 0 0;
@@ -51,7 +51,7 @@
 }
 
 .page p {
-  color: #4f5c57;
+  color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.7;
 }
@@ -74,7 +74,7 @@
 .audiences {
   background: var(--green);
   border-radius: 18px;
-  color: white;
+  color: var(--white);
   overflow: hidden;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .audienceSplit article:first-child {
-  background: #225f50;
+  background: var(--green-light);
 }
 
 .audienceSplit article:last-child {
@@ -120,7 +120,7 @@
 }
 
 .audienceSplit article:last-child span {
-  color: #355048;
+  color: var(--green-text);
 }
 
 .audienceSplit h3 {
@@ -167,7 +167,7 @@
 }
 
 .flowList li:nth-child(2) {
-  border-color: #2f695a;
+  border-color: var(--green-mid);
 }
 
 .flowList li:nth-child(3) {
@@ -175,7 +175,7 @@
 }
 
 .flowList span {
-  color: #a5412c;
+  color: var(--rust);
   display: block;
   margin-bottom: 3.5rem;
 }
@@ -241,7 +241,7 @@
 .cta {
   background: var(--green);
   border-radius: 999px;
-  color: white;
+  color: var(--white);
   padding: 0.85rem 1.15rem;
   text-decoration: none;
 }

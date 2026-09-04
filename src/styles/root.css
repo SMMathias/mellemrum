@@ -52,7 +52,7 @@ main {
 
 input,
 select {
-  background: white;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
   color: var(--ink);
@@ -64,12 +64,12 @@ select {
 input:focus,
 select:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(23, 63, 53, 0.12);
+  box-shadow: 0 0 0 3px rgba(var(--green-rgb), 0.12);
   outline: none;
 }
 
 .event-category {
-  color: #a5412c;
+  color: var(--rust);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.14em;

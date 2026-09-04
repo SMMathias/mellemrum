@@ -1,6 +1,6 @@
 .siteFooter {
-  background: #102f28;
-  color: rgba(255, 255, 255, 0.72);
+  background: var(--forest);
+  color: rgba(var(--white-rgb), 0.72);
   padding: clamp(3rem, 6vw, 5rem) var(--content-edge);
 }
 
@@ -21,7 +21,7 @@
 }
 
 .footerBrand {
-  color: white;
+  color: var(--white);
   font-size: clamp(2rem, 4vw, 3.6rem);
   font-weight: 850;
   letter-spacing: -0.06em;
@@ -53,9 +53,9 @@
 }
 
 .footerLinkGroup a {
-  color: white;
+  color: var(--white);
   padding: 0.28rem 0;
-  text-decoration-color: rgba(216, 255, 98, 0.35);
+  text-decoration-color: rgba(var(--lime-rgb), 0.35);
   text-underline-offset: 0.25rem;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .footerBottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(var(--white-rgb), 0.14);
   display: flex;
   justify-content: space-between;
   margin-top: clamp(3rem, 6vw, 5rem);

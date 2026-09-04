@@ -1,9 +1,9 @@
 .siteNav {
   align-items: center;
   background: var(--green);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 28px rgba(12, 42, 34, 0.12);
-  color: white;
+  border-bottom: 1px solid rgba(var(--white-rgb), 0.1);
+  box-shadow: 0 8px 28px rgba(var(--forest-rgb), 0.12);
+  color: var(--white);
   display: flex;
   justify-content: space-between;
   min-height: 80px;
@@ -31,7 +31,7 @@
 
 .navLinks a {
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(var(--white-rgb), 0.78);
   font-size: 0.92rem;
   padding: 0.55rem 0.85rem;
   text-decoration: none;
@@ -40,8 +40,8 @@
 
 .navLinks a:hover,
 .navLinks a.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(var(--white-rgb), 0.1);
+  color: var(--white);
 }
 
 @media (max-width: 620px) {

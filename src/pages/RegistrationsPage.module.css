@@ -1,6 +1,6 @@
 .header {
   background: var(--green);
-  color: white;
+  color: var(--white);
   padding: 5rem var(--content-edge);
 }
 
@@ -12,10 +12,10 @@
 }
 
 .list {
-  background: white;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(23, 32, 29, 0.05);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .row small {
-  color: #65706c;
+  color: var(--muted-light);
   margin-top: 0.2rem;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .status {
-  background: #dff3cc;
+  background: var(--mint);
   border-radius: 999px;
   display: inline-block;
   font-size: 0.75rem;

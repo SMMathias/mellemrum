@@ -1,8 +1,8 @@
 .hero {
   background:
-    linear-gradient(90deg, rgba(12, 42, 34, 0.92) 0%, rgba(12, 42, 34, 0.7) 52%, rgba(12, 42, 34, 0.28) 100%),
+    linear-gradient(90deg, rgba(var(--forest-rgb), 0.92) 0%, rgba(var(--forest-rgb), 0.7) 52%, rgba(var(--forest-rgb), 0.28) 100%),
     url("https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover;
-  color: white;
+  color: var(--white);
   min-height: 64vh;
   padding: clamp(5rem, 10vw, 9rem) var(--content-edge) 5rem;
 }
@@ -16,7 +16,7 @@
 }
 
 .heroCopy {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(var(--white-rgb), 0.76);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.55;
   margin: 2rem 0;
@@ -54,13 +54,13 @@
 }
 
 .sectionHeading > p {
-  color: #53605b;
+  color: var(--muted);
   margin: 0;
   max-width: 30rem;
 }
 
 .filters {
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(var(--white-rgb), 0.62);
   border: 1px solid var(--line);
   border-radius: 14px;
   display: grid;
@@ -86,10 +86,10 @@
 }
 
 .card {
-  background: white;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(23, 32, 29, 0.05);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -124,7 +124,7 @@
 }
 
 .cardContent > p:not(:global(.event-category)) {
-  color: #59635f;
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -141,7 +141,7 @@
   align-self: flex-start;
   background: var(--green);
   border-radius: 999px;
-  color: white;
+  color: var(--white);
   font-size: 0.88rem;
   font-weight: 750;
   margin-top: 1rem;

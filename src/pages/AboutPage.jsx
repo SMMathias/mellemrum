@@ -1,22 +1,23 @@
 import { Link } from "react-router";
+import styles from "./AboutPage.module.css";
 
 export default function AboutPage() {
   return (
     <>
-      <header className="page-header about-header">
-        <div className="about-header-content">
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
           <p className="eyebrow">Om Mellemrum</p>
           <h1>Vi skaber mellemrum i kalenderen.</h1>
           <p>Udvalgte kulturoplevelser og nye perspektiver på Aarhus.</p>
         </div>
       </header>
-      <main className="about-page">
-        <section className="about-intro" aria-labelledby="about-intro-title">
+      <main className={styles.page}>
+        <section className={styles.intro} aria-labelledby="about-intro-title">
           <div>
             <p className="eyebrow dark">Idéen</p>
             <h2 id="about-intro-title">En enkel vej til det, der sker tæt på.</h2>
           </div>
-          <div className="about-intro-copy">
+          <div className={styles.introCopy}>
             <p className="lead">
               Mellemrum samler koncerter, talks, workshops og fællesskaber, så du lettere kan opdage noget, du ikke
               allerede kendte.
@@ -28,12 +29,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="about-audiences" aria-labelledby="about-audiences-title">
-          <div className="about-section-heading">
+        <section className={styles.audiences} aria-labelledby="about-audiences-title">
+          <div className={styles.sectionHeading}>
             <p className="eyebrow">Målgrupper</p>
             <h2 id="about-audiences-title">Mellemrum forbinder oplevelser med mennesker.</h2>
           </div>
-          <div className="about-audience-split">
+          <div className={styles.audienceSplit}>
             <article>
               <span>Primær målgruppe</span>
               <h3>For dig, der vil opdage byen</h3>
@@ -49,12 +50,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="about-flow-section" aria-labelledby="about-flow-title">
-          <div className="about-section-heading">
+        <section className={styles.flowSection} aria-labelledby="about-flow-title">
+          <div className={styles.sectionHeading}>
             <p className="eyebrow dark">Sådan hænger det sammen</p>
             <h2 id="about-flow-title">Fra idé til plads i kalenderen.</h2>
           </div>
-          <ol className="about-flow-list">
+          <ol className={styles.flowList}>
             <li>
               <span>01</span>
               <strong>Arrangører deler events</strong>
@@ -73,7 +74,7 @@ export default function AboutPage() {
           </ol>
         </section>
 
-        <section className="about-city" aria-labelledby="about-city-title">
+        <section className={styles.city} aria-labelledby="about-city-title">
           <figure>
             <img
               src="https://images.unsplash.com/photo-1532370778713-1400f3d62094?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0"
@@ -85,7 +86,7 @@ export default function AboutPage() {
             <p className="eyebrow dark">Aarhus tæt på</p>
             <h2 id="about-city-title">Find plads til noget nyt.</h2>
             <p>Mellemrum peger på steder, idéer og fællesskaber på tværs af byen — fra små scener til store tanker.</p>
-            <Link className="about-cta" to="/">
+            <Link className={styles.cta} to="/">
               Se kommende events →
             </Link>
           </div>

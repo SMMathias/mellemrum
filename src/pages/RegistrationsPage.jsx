@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import { getRegistrations } from "../lib/service";
 import styles from "./RegistrationsPage.module.css";
 
@@ -41,7 +42,15 @@ export default function RegistrationsPage() {
                 <strong>{registration.name}</strong>
                 <small>{registration.email}</small>
               </div>
-              <span>{registration.eventTitle}</span>
+              <span>
+                {registration.eventId ? (
+                  <Link to={`/events/${registration.eventId}`}>
+                    {registration.eventTitle}
+                  </Link>
+                ) : (
+                  registration.eventTitle
+                )}
+              </span>
               <span>
                 {new Date(registration.eventDate).toLocaleDateString("da-DK")}
               </span>

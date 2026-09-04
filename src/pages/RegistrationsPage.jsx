@@ -5,6 +5,8 @@ import styles from "./RegistrationsPage.module.css";
 export default function RegistrationsPage() {
   const [registrations, setRegistrations] = useState([]);
   const [registrationCount, setRegistrationCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     async function loadRegistrations() {
@@ -14,6 +16,9 @@ export default function RegistrationsPage() {
         setRegistrationCount(data.length);
       } catch (error) {
         console.error(error);
+        setHasError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -28,6 +33,15 @@ export default function RegistrationsPage() {
         <p>{registrationCount} tilmeldinger i alt</p>
       </header>
       <main>
+        {isLoading && <p className="state-message">Henter tilmeldinger…</p>}
+        {hasError && (
+          <p className="state-message">
+            Kunne ikke hente tilmeldinger. Prøv igen senere.
+          </p>
+        )}
+        {!isLoading && !hasError && registrations.length === 0 && (
+          <p className="state-message">Der er ingen tilmeldinger endnu.</p>
+        )}
         <div className={styles.list}>
           <div className={`${styles.row} ${styles.labels}`}>
             <span>Navn</span>

@@ -1,6 +1,6 @@
 {
   "name": "mellemrum",
-  "base": "/mellemrum-case1/",
+  "base": "/mellemrum/",
   "private": true,
   "version": "1.0.0",
   "type": "module",

@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import "./styles/variables.css";
+import "./styles/root.css";
 import "./styles.css";
 import App from "./App.jsx";
 

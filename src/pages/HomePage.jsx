@@ -7,6 +7,8 @@ export default function HomePage() {
   const [events, setEvents] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Alle");
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     async function loadEvents() {
@@ -14,6 +16,9 @@ export default function HomePage() {
         setEvents(await getEvents());
       } catch (error) {
         console.error(error);
+        setHasError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
     loadEvents();
@@ -90,6 +95,15 @@ export default function HomePage() {
           </label>
         </section>
 
+        {isLoading && <p className="state-message">Henter events…</p>}
+        {hasError && (
+          <p className="state-message">
+            Kunne ikke hente events. Prøv igen senere.
+          </p>
+        )}
+        {!isLoading && !hasError && filteredEvents.length === 0 && (
+          <p className="state-message">Ingen events matcher din søgning.</p>
+        )}
         <section className={styles.grid}>
           {filteredEvents.map((event) => (
             <article className={styles.card} key={event.id}>

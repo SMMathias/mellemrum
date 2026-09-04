@@ -81,3 +81,10 @@ select:focus {
   color: var(--ink) !important;
   font-size: clamp(1.25rem, 2vw, 1.7rem) !important;
 }
+
+.state-message {
+  background: var(--cream);
+  border-radius: 8px;
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+}

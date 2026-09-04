@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { getEventById } from "../lib/service";
+import styles from "./EventPage.module.css";
 
 export default function EventPage() {
   const { eventId } = useParams();
@@ -32,18 +33,18 @@ export default function EventPage() {
 
   return (
     <>
-      <main className="event-page">
-        <Link className="back-link" to="/">
+      <main className={styles.page}>
+        <Link className={styles.backLink} to="/">
           ← Alle events
         </Link>
 
-        <section className="event-detail">
+        <section className={styles.detail}>
           <img src={event.image} alt="" />
-          <div className="event-detail-content">
+          <div className={styles.detailContent}>
             <p className="event-category">{event.category}</p>
             <h1>{event.title}</h1>
             <p className="lead">{event.summary}</p>
-            <div className="detail-list">
+            <div className={styles.detailList}>
               <p>
                 <strong>Dato</strong>
                 {date.toLocaleDateString("da-DK", {
@@ -81,7 +82,7 @@ export default function EventPage() {
           </div>
         </section>
 
-        <section className="signup-panel">
+        <section className={styles.signup}>
           <div>
             <p className="eyebrow dark">Tilmelding</p>
             <h2>Reserver din plads</h2>

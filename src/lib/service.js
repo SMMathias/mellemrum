@@ -37,3 +37,15 @@ export async function getRegistrations() {
 
   return data;
 }
+
+export async function createRegistration(registration) {
+  const { data, error } = await supabase
+    .from("registrations")
+    .insert(registration)
+    .select()
+    .single();
+
+  if (error) throw error;
+
+  return data;
+}

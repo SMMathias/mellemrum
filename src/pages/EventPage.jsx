@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import { getEventById } from "../lib/service";
+import { getEventById, createRegistration } from "../lib/service";
 import styles from "./EventPage.module.css";
 
 export default function EventPage() {
@@ -8,6 +8,7 @@ export default function EventPage() {
   const [event, setEvent] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle");
 
   useEffect(() => {
     async function loadEvent() {
@@ -22,7 +23,23 @@ export default function EventPage() {
 
   async function handleSubmit(eventSubmit) {
     eventSubmit.preventDefault();
-    console.log({ name, email, event: event.title });
+    setStatus("saving");
+
+    try {
+      await createRegistration({
+        name,
+        email,
+        eventTitle: event.title,
+        eventDate: event.date,
+        eventLocation: event.venueName,
+      });
+      setName("");
+      setEmail("");
+      setStatus("success");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
   }
 
   if (!event) {
@@ -95,17 +112,30 @@ export default function EventPage() {
             <label>
               Navn
               <input
+                required
                 value={name}
                 onChange={(inputEvent) => setName(inputEvent.target.value)}
               />
             </label>
             <span>E-mail</span>
             <input
+              required
+              type="email"
               value={email}
               onChange={(inputEvent) => setEmail(inputEvent.target.value)}
               placeholder="dig@example.com"
             />
-            <button type="submit">Tilmeld mig</button>
+            <button type="submit" disabled={status === "saving"}>
+              Tilmeld mig
+            </button>
+            {status === "success" && (
+              <p className={styles.formMessage}>
+                Tak, din tilmelding er modtaget.
+              </p>
+            )}
+            {status === "error" && (
+              <p className={styles.formMessage}>Noget gik galt. Prøv igen.</p>
+            )}
           </form>
         </section>
       </main>
